@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 17% 95%;
+    --foreground: 210 57% 24%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 57% 24%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 57% 24%;
+
+    --primary: 210 57% 24%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 207 90% 54%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 17% 90%;
+    --muted-foreground: 210 30% 45%;
+
+    --accent: 207 76% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 17% 88%;
+    --input: 210 17% 88%;
+    --ring: 207 90% 54%;
+
+    --radius: 0.75rem;
+
+    /* Custom Qodex colors */
+    --qodex-dark: 210 57% 24%;
+    --qodex-blue: 207 90% 54%;
+    --qodex-light: 210 17% 95%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 57% 24%) 0%, hsl(207 90% 54%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(207 90% 54%) 0%, hsl(207 76% 51%) 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(207 90% 54% / 0.3);
+    --shadow-elegant: 0 10px 30px -10px hsl(210 57% 24% / 0.2);
+  }
+
+  .dark {
+    --background: 210 57% 10%;
+    --foreground: 0 0% 100%;
+
+    --card: 210 57% 15%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 210 57% 15%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 207 90% 54%;
+    --primary-foreground: 210 57% 24%;
+
+    --secondary: 210 57% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 57% 20%;
+    --muted-foreground: 210 17% 70%;
+
+    --accent: 207 76% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 57% 20%;
+    --input: 210 57% 20%;
+    --ring: 207 90% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .tech-grid {
+    background-image: 
+      linear-gradient(hsl(207 90% 54% / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(207 90% 54% / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
